@@ -1,0 +1,4 @@
+
+授業で扱った内容の記録
+
+https://github.com/SeiichiN/LaLa-MySQL-work.git
