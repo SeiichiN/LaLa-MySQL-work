@@ -124,3 +124,15 @@ FROM lend_book lb
       ON lb.books_id = b.id
 ORDER BY lb.lending_id ASC
 ;
+
+
+--
+-- このデータベース専用のユーザーを作成
+--
+
+CREATE USER 'carduser'@'localhost'
+ IDENTIFIED BY 'carduser';
+
+GRANT ALL ON library_card.*
+ TO 'carduser'@'localhost';
+
