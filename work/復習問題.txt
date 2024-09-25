@@ -1,0 +1,4 @@
+
+データベース名: web_school
+テーブル名: students
+
