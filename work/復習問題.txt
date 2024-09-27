@@ -1,4 +1,10 @@
 
-データベース名: web_school
-テーブル名: students
+-- データベース名: web_school
+-- テーブル名: students
 
+create database web_school;
+use web_school;
+
+create table students (
+
+);
