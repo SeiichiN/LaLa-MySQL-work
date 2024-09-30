@@ -1,0 +1,26 @@
+
+rent表
+id         CHAR(3) PRIMARY KEY,
+member_id  CHAR(6),
+rent_day   DATE,
+return_day DATE,
+FOREIGN KEY (member_id)
+REFERENCES member (id)
+
+
+member表
+id   CHAR(6) PRIMARY KEY,
+name VARCHAR(50)
+
+
+book表
+id     CHAR(5) PRIMARY KEY,
+name   VARCHAR(100),
+author VARCHAR(100)
+
+
+rent_book表
+rent_id CHAR(3),
+book_id CHAR(5),
+PRIMARY KEY (rend_id, book_id),
+
