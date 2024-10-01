@@ -1,6 +1,6 @@
 
 -- 
--- catテーブルの作成
+-- castテーブルの作成
 --
 
 create table cast (
