@@ -1,0 +1,18 @@
+
+
+students•\
+  id       INT         A.I. PK
+  name     VARCHAR(50)
+  gender   CHAR(1)
+  birthday DATE
+  state_id CHAR(2)
+  cource_id CHAR(3)
+
+state•\
+  id    CHAR(2)    PK
+  name  VARCHAR(5)
+
+
+cource•\
+  id    CHAR(3)    PK
+  name  VARCHAR(100)
