@@ -6,6 +6,8 @@ CREATE DATABASE IF NOT EXISTS book_rental;
 
 USE book_rental;
 
+DROP TABLE IF EXISTS rent_book;
+DROP TABLE IF EXISTS rent;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS member;
 
