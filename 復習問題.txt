@@ -1,0 +1,12 @@
+
+データベース名 hukusyu
+
+テーブル名 web_school
+
+id         int          primary key
+name       varchar(20)
+gender     char(1)
+birthday   date
+birthplace varchar(20)
+cource     varchar(20)
+
