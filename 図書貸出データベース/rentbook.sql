@@ -93,3 +93,28 @@ VALUES
   ('C04', 'bk001')\g
 
 SELECT * FROM rent_book;
+
+
+--
+-- Œ‹‡•\
+--
+
+SELECT
+  r.id AS ‘İoNO,
+  r.member_id AS ‰ïˆõID,
+  m.name AS ‰ïˆõ–¼,
+  r.rent_day AS ‘İo“ú,
+  r.return_day AS •Ô‹p“ú,
+  b.title AS ‘–¼,
+  b.author AS ’˜Ò–¼
+FROM rent r
+  INNER JOIN member m
+  ON r.member_id = m.id
+    INNER JOIN rent_book rb
+    ON r.id = rb.rent_id
+      INNER JOIN book b
+      ON b.id = rb.book_id
+\g
+
+
+  
