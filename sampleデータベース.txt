@@ -1,0 +1,28 @@
+
+username: sampleuser
+password: sampleuser
+database: sample
+
+ユーザーの作成
+create user 'sampleuser'@'localhost'
+identified by 'sampleuser';
+
+確認
+select user, host, db from mysql.db;
+
+sampleデータベースへの権限を与える
+grant all on sample.*
+ to 'sampleuser'@'localhost';
+
+
+use sample;
+
+empテーブルの定義
+CREATE TABLE emp (
+  id       INT         AUTO_INCREMENT,
+  name     VARCHAR(20) NOT NULL,
+  age      INT         NOT NULL,
+  birthday YEAR        NOT NULL,
+  dept_id  CHAR(3),
+  PRIMARY  KEY (id)
+);

@@ -1,0 +1,54 @@
+データベース: ronin
+テーブル名: `cast`
+
+ID      id        整数             int
+俳優名  name      文字列（可変長） varchar(20)
+性      gender    文字列（固定）   char(1)
+誕生日  birthday  date型           date
+出身    state     文字列（可変長） varchar(20)
+所属    office    文字列（可変長） varchar(100)
+
+
+create table cast (
+  id       int         primary key,
+  name     varchar(20),
+  gender   char(1),
+  birthday date,
+  state    varchar(20),
+  office   varchar(100)
+);
+
+insert into cast
+values
+(1, '原田芳雄',   'm', '1940-02-29', '東京都', 'ギルドB'),
+(2, '勝新太郎',   'm', '1931-11-29', '千葉県', '勝プロ'),
+(3, '樋口可南子', 'f', '1958-12-13', '新潟県', 'ユマニテ'),
+(4, '石橋蓮司',   'm', '1941-08-09', '東京都', '劇団第七病棟'),
+(5, '田中邦衛',   'm', '1932-11-23', '岐阜県', '俳優座'),
+(6, '杉田かおる', 'f', '1964-11-27', '東京都', 'オフィスPSC');
+
+
+(4)
+select * from cast
+where
+  state = '東京都';
+----------------------
+select * from cast
+where
+  state like '東%';
+
+(5)
+update cast
+  set
+    office = 'なし'
+  where
+    id = 5;
+    
+(6)
+insert into cast
+  values
+(7, '中尾彬', 'm', '1942-08-11', '千葉県', '古舘プロジェクト');
+
+(7)
+delete from cast
+  where id = 4;
