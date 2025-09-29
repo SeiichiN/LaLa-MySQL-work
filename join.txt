@@ -1,0 +1,13 @@
+
+
+SELECT
+  e.id   AS ID,
+  e.name AS –¼‘O,
+  e.age  AS ”N—î,
+  d.name AS •”–¼
+FROM emp e
+  INNER JOIN dept d
+  ON e.dept_id = d.id
+ORDER BY ”N—î ASC;
+
+

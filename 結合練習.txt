@@ -1,0 +1,17 @@
+emp, dept ÇÃåãçá
+
+
+SELECT
+  e.id,
+  e.name,
+  e.age,
+  e.birthday,
+  d.name
+FROM emp e
+  INNER JOIN dept d
+  ON e.dept_id = d.id
+ORDER BY e.id ASC;
+
+  
+  
+  

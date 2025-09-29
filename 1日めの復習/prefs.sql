@@ -1,17 +1,18 @@
 
-DROP TABLE IF EXISTS state;
+--
+-- ƒe[ƒuƒ‹ prefs
+--
 
-CREATE TABLE state (
-  id char(2) PRIMARY KEY,
+DROP TABLE IF EXISTS prefs;
+
+CREATE TABLE prefs (
+  id   char(2)    PRIMARY KEY,
   name varchar(5)
-); 
+);
 
-
---
--- state
---
-
-INSERT INTO state (id, name) VALUES
+INSERT INTO prefs
+  (id, name)
+VALUES
 ('01', '–kŠC“¹'),
 ('02', 'ÂXŒ§'),
 ('03', 'ŠâèŒ§'),
@@ -60,5 +61,3 @@ INSERT INTO state (id, name) VALUES
 ('46', '­™“‡Œ§'),
 ('47', '‰«“êŒ§');
 
-
--- C³: Sat 2024/09/28 07:32:202
