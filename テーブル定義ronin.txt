@@ -1,5 +1,5 @@
 データベース: ronin
-テーブル名: `cast`
+テーブル名: actors
 
 ID      id        整数             int
 俳優名  name      文字列（可変長） varchar(20)
