@@ -1,0 +1,32 @@
+
+-- 成田三樹夫さんのデータ
+INSERT INTO emp 
+  (name, age, birthday)
+VALUES
+  ('成田三樹夫', 38, 1935);
+
+
+-- 左外部結合
+SELECT
+  e.id   AS ID,
+  e.name AS 名前,
+  e.age  AS 年齢,
+  d.name AS 部署名
+FROM emp e
+  LEFT OUTER JOIN dept d
+  ON e.dept_id = d.id
+ORDER BY e.id
+\g
+
+
+-- 右外部結合
+SELECT
+  e.id   AS ID,
+  e.name AS 名前,
+  e.age  AS 年齢,
+  d.name AS 部署名
+FROM emp e
+  RIGHT OUTER JOIN dept d
+  ON e.dept_id = d.id
+ORDER BY e.id
+\g
