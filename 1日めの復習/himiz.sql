@@ -1,6 +1,6 @@
--- himiz
+-- himizƒf[ƒ^ƒx[ƒX
 
-create database himiz;
+create database if not exists himiz;
 
 use himiz;
 
@@ -18,55 +18,55 @@ create table persons (
 insert into persons
 (name, gender_id, birthday, pref_id)
 values
-('æŸ“è°·å°†å¤ª',   1, '1992-09-03', '13'),
-('äºŒéšå ‚ãµã¿', 2, '1994-09-21', '47'),
-('æ¸¡è¾ºå“²',     1, '1950-03-11', '23'),
-('çªªå¡šæ´‹ä»‹',   1, '1975-05-07', '14'),
-('å‰é«˜ç”±é‡Œå­', 2, '1988-07-22', '13');
+('õ’J«‘¾',   1, '1992-09-03', '13'),
+('“ñŠK“°‚Ó‚İ', 2, '1994-09-21', '47'),
+('“n•Ó“N',     1, '1950-03-11', '23'),
+('ŒE’Ë—m‰î',   1, '1975-05-07', '14'),
+('‹g‚—R—¢q', 2, '1988-07-22', '13');
 
 
--- æ€§åˆ¥è¡¨
+-- «•Ê•\
 CREATE TABLE gender (
   id INT PRIMARY KEY,
   name VARCHAR(10)
 );
 
 INSERT INTO gender VALUES
-(1, 'ç”·æ€§'),
-(2, 'å¥³æ€§');
+(1, '’j«'),
+(2, '—«');
 
 
--- çµåˆè¡¨
+-- Œ‹‡•\(persons, gender)
 SELECT
   p.id AS ID,
-  p.name AS åå‰,
-  g.name AS æ€§åˆ¥,
-  p.birthday AS èª•ç”Ÿæ—¥,
-  p.pref_id AS å‡ºèº«
+  p.name AS –¼‘O,
+  g.name AS «•Ê,
+  p.birthday AS ’a¶“ú,
+  p.pref_id AS og
 FROM persons p
   INNER JOIN gender g
   ON p.gender_id = g.id
 ORDER BY p.id
-;
+\g
+
+
+-- prefs.sql ‚Ì“Ç‚İ‚İ
 
 source prefs.sql;
 
--- çµåˆè¡¨
+select * from prefs;
+
+-- Œ‹‡•\(persons, gender, prefs)
 SELECT
-  p.id AS ID,
-  p.name AS åå‰,
-  g.name AS æ€§åˆ¥,
-  p.birthday AS èª•ç”Ÿæ—¥,
-  p.pref_id,
-  pr.id,
-  pr.name
+  p.id       AS ID,
+  p.name     AS –¼‘O,
+  g.name     AS «•Ê,
+  p.birthday AS ’a¶“ú,
+  pr.name    AS og
 FROM persons p
   INNER JOIN gender g
   ON p.gender_id = g.id
     INNER JOIN prefs pr
     ON p.pref_id = pr.id
-ORDER BY p.id
-;
-
-
--- ä¿®æ­£æ™‚åˆ»: Mon 2025/09/29 18:54:17
+ORDER BY p.id ASC
+\g

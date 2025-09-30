@@ -23,20 +23,12 @@ CREATE TABLE dept (
   name VARCHAR(20) NOT NULL
 );
 
-
--- 菅原文太さんのデータ
-INSERT INTO emp
-(name, age, birthday, dept_id)
-VALUES
-('菅原文太', 40, 1933, '001');
-
-INSERT INTO emp
-(name, age, birthday, dept_id)
-VALUES
-('千葉真一',   34, 1939, '002'),
-('北大路欣也', 30, 1943, '003'),
-('梶芽衣子',   26, 1947, '004');
-
+-- 外部キー制約(追加)
+ALTER TABLE emp
+  ADD
+  CONSTRAINT fk_dept_id  -- 制約名
+  FOREIGN KEY (dept_id)  -- 外部キーの指定
+  REFERENCES dept (id);  -- 参照先のテーブル.カラム
 
 
 -- deptテーブルにデータを挿入
@@ -52,5 +44,17 @@ VALUES
   ('006', '情報システム部');
 
 
+
+-- 菅原文太さんのデータ
+INSERT INTO emp
+(name, age, birthday, dept_id)
+VALUES
+('菅原文太',   40, 1933, '001'),
+('千葉真一',   34, 1939, '002'),
+('北大路欣也', 30, 1943, '003'),
+('梶芽衣子',   26, 1947, '006');
+
+
 SELECT * FROM emp;
 SELECT * FROM dept;
+

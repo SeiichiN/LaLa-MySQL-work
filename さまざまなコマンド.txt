@@ -1,0 +1,69 @@
+
+-- persons表のカラム pref を
+-- pref_id に変えて、
+-- データ型を char(2) に変更する
+
+ALTER TABLE persons
+CHANGE pref pref_id CHAR(2);
+
+-- sampleでーたべーすに作成
+
+CREATE TABLE students (
+  id   CHAR(3),
+  name VARCHAR(20)
+);
+
+ALTER TABLE students
+MODIFY
+  name VARCHAR(20) NOT NULL;
+
+
+-- 失敗
+ALTER TABLE students
+RENAME COLUMN name TO st_name;
+
+-- 成功
+alter table students
+change name st_name varchar(20);
+
+-- ageカラムの追加
+ALTER TABLE students
+ADD
+  age INT NOT NULL;
+
+-- プライマリキーの追加
+ALTER TABLE students
+ADD
+  PRIMARY KEY (id);
+
+
+alter table students
+change st_name name varchar(20);
+
+
+-- studentsにデータを挿入
+
+insert into students
+  (id, name, age)
+values
+  ('001', '二宮和也', 40);
+
+-- 名前を変更
+update students
+set
+  name = '渡辺謙'
+where
+  id = '001';
+
+
+insert into students
+  (id, name, age)
+values
+  ('002', '二宮和也', 45);
+
+delete from students
+where id = '001';
+
+
+select * from emp
+where name like '%葉%';
