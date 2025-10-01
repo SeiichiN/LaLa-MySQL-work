@@ -84,6 +84,8 @@ FROM loan_book lb
   on lb.loan_id = l.id
     INNER JOIN members m
     on l.member_id = m.id
+      INNER JOIN books b
+      ON lb.book_id = b.id
 \g
 
 
