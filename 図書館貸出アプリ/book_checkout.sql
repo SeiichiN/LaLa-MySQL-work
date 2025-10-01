@@ -67,6 +67,18 @@ CREATE TABLE loan_book (
   PRIMARY KEY (loan_id, book_id)
 );
 
+ALTER TABLE loan_book
+ADD
+  CONSTRAINT fk_loan_id
+  FOREIGN KEY (loan_id)
+  REFERENCES loans (id);
+
+ALTER TABLE loan_book
+ADD
+  CONSTRAINT fk_book_id
+  FOREIGN KEY (book_id)
+  REFERENCES books (id);
+
 INSERT INTO loan_book VALUES
 (1, 'bk001'),
 (1, 'bk002'),
@@ -89,4 +101,4 @@ FROM loan_book lb
 
 
 
--- 修正時刻: Wed 2025/10/01 20:11:10
+-- 修正時刻: Thu 2025/10/02 06:25:52
