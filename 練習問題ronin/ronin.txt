@@ -1,0 +1,68 @@
+-- 練習問題ronin
+
+-- roninデータベース作成
+--
+create database ronin;
+use ronin;
+
+-- テーブル定義 actors
+-- pk     id       int
+-- 俳優名 name     varchar(100)
+-- 性     gender   char(1)
+-- 誕生日 birthday date
+-- 出身   hometown varchar(100)
+-- 所属   office   varchar(200)
+--
+create table actors (
+  id       int    primary key,
+  name     varchar(100),
+  gender   char(1),
+  birthday date,
+  hometown varchar(100),
+  office   varchar(200)
+);
+
+-- テーブルの確認
+desc actors;
+
+-- データの登録
+--
+insert into actors
+values
+(1, '原田芳雄',   'm', '1940-02-29', '東京都', 'ギルドB'),
+(2, '勝新太郎',   'm', '1931-11-29', '千葉県', '勝プロ'),
+(3, '樋口可南子', 'f', '1958-12-13', '新潟県', 'ユマニテ'),
+(4, '石橋蓮司',   'm', '1941-08-09', '東京都', '劇団第七病棟'),
+(5, '田中邦衛',   'm', '1932-11-23', '岐阜県', '俳優座'),
+(6, '杉田かおる', 'f', '1964-11-27', '東京都', 'オフィスPSC');
+
+-- 出身が東京の人
+--
+select * from actors
+where hometown like '東京%';
+
+select * from actors
+where hometown = '東京都';
+
+-- 田中邦衛さんの所属を「なし」に変更
+--
+update actors
+  set office = 'なし'
+  where id = 5;
+
+-- 中尾彬さんのデータを追加
+--
+insert into actors
+values
+(7, '中尾彬', 'm', '1942-08-11', '千葉県', '古舘プロジェクト');
+
+-- 石橋蓮司さんを削除
+--
+delete from actors 
+  where id = 4;
+
+
+
+
+
+

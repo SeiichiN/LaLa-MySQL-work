@@ -1,0 +1,38 @@
+-- 練習問題himiz
+
+-- データベースの作成
+--
+create database himiz;
+use himiz;
+
+-- テーブルの作成
+--
+create table persons (
+  id       int primary key,
+  name     varchar(100),
+  gender   char(2),
+  birthday date,
+  hometown varchar(10)
+);
+
+insert into persons
+values
+(1, '染谷将太',   '男性', '1992-09-03', '東京都'),
+(2, '二階堂ふみ', '女性', '1994-09-21', '沖縄県'),
+(3, '渡辺哲',     '男性', '1950-03-11', '愛知県'),
+(4, '窪塚洋介',   '男性', '1979-05-07', '神奈川県'),
+(5, '吉高百合子', '女性', '1988-07-22', '東京都');
+
+
+select * from persons;
+
+-- カラムcourseの追加
+alter table persons
+add column course varchar(50);
+
+-- courceにデータをいれる
+update persons set course = 'JavaScript' where id = 1;
+update persons set course = 'PHP' where id = 2;
+update persons set course = 'Java' where id = 3;
+update persons set course = 'HTMLCSS' where id = 4;
+update persons set course = 'Java' where id = 5;
