@@ -1,0 +1,53 @@
+--
+-- ユーザーの作成
+--
+CREATE USER 'sampleuser'@'localhost'
+IDENTIFIED BY 'sampleuser';
+
+-- sampleデータベースへの権限
+GRANT ALL ON sample.* TO 'sampleuser'@'localhost';
+
+-- データベースの作成
+CREATE DATABASE sample;
+
+-- 使用宣言
+USE sample;
+
+--
+-- employees表
+--
+CREATE TABLE employees (
+  id   INT         AUTO_INCREMENT,
+  name VARCHAR(20) NOT NULL,
+  age  INT         NOT NULL,
+  birthday      YEAR    NOT NULL,
+  department_id CHAR(3),
+  PRIMARY KEY (id)
+);
+
+--
+-- departments表
+--
+CREATE TABLE departments (
+  id   CHAR(3)     PRIMARY KEY,
+  name VARCHAR(20) NOT NULL
+);
+
+-- データの登録
+INSERT INTO employees
+  (name, age, birthday, department_id)
+VALUES
+  ('菅原文太', 40, 1933, '001');
+
+INSERT INTO employees
+  (name, age, birthday, department_id)
+VALUES
+  ('千葉真一',   34, 1939, '002'),
+  ('北大路欣也', 30, 1943, '003'),
+  ('梶芽衣子',   26, 1967, '002');
+
+
+
+
+
+

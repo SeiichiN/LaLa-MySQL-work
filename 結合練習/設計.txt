@@ -1,0 +1,26 @@
+schoolデータベース
+
+studentsテーブル
+-------
+id
+name
+gender
+course_id
+-------
+
+1 染谷将太   男性 '001'
+2 二階堂ふみ 女性 '002'
+3 窪塚洋介   男性 '003'
+4 吉高百合子 女性 '002'
+
+coursesテーブル
+------
+id
+name
+------
+'001' HTMLCSS
+'002' JavaScript
+'003' PHP
+'004' Java
+'005' Python
+------
