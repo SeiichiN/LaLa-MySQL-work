@@ -1,0 +1,35 @@
+SQL -- データベース言語の一つ
+       シークェル、シーケル
+
+ほとんどのデータベースで使える。
+
+
+
+(1) データ定義言語 DDL (Data Definition Language)
+
+CREATE:   新しいデータベースやテーブルを定義する。
+JOIN:     テーブルの結合
+DROP:     データベースやテーブルを削除する。
+ALTER:    定義したテーブルの内容を変更する。
+TRUNCATE: データをすべて削除する。
+
+
+(2) データ操作言語 DML (Data Manipulation Language)
+
+SELECT: テーブルを検索表示する。
+INSERT: データを挿入する。
+DELETE: データを削除する。
+UPDATE: データを更新する。
+
+
+(3) データ制御言語 DCL (Data Control Language)
+
+GRANT:    ユーザー権限を付与する。
+REVOKE:   ユーザー権限を削除する。
+BEGIN:    トランザクションを開始する。
+COMMIT:   トランザクションを確定する。
+ROLLBACK: トランザクションを取り消す
+
+
+
+;; 修正時刻: Fri 2022/04/08 09:15:32
