@@ -1,0 +1,51 @@
+
+CREATE TABLE students (
+  id char(3),
+  name varchar(20)
+);
+
+-- カラムの変更
+ALTER TABLE students
+MODIFY name varchar(20) NOT NULL;
+
+-- カラム名の変更
+ALTER TABLE students
+CHANGE name st_name varchar(20);
+
+-- カラムの追加
+ALTER TABLE students
+ADD
+  age int not null;
+
+-- プライマリーキーの追加
+ALTER TABLE students
+ADD
+  PRIMARY KEY (id);
+
+
+-- id=1 のデータを削除
+DELETE FROM employees WHERE id = 1;
+
+-- すべてのデータを削除
+DELETE FROM employees;  -- AIが残る
+
+TRUNCATE employees;   -- AIがリセットされる
+
+INSERT INTO employees
+  (name, age, birthday, department_id)
+VALUES
+  ('松方弘樹', 34, '1988-03-04', '003');
+
+-- 検索
+SELECT * FROM employees
+WHERE name LIKE '%葉%';
+
+-- 文字コードの確認
+SHOW VARIABLES LIKE '%char%';
+
+-- ユーザー一覧
+SELECT user, host, db FROM mysql.db;
+
+-- パスワード一覧
+SELECT user, password FROM mysql.user;
+
