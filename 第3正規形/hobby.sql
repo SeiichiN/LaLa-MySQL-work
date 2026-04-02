@@ -115,9 +115,57 @@ VALUES
   (4, 'H07'),
   (4, 'H08'),
   (4, 'H05');
-  
-  
-  
 
+/*
+SELECT * FROM genders;
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM hobbies;
+SELECT * FROM employee_hobbies;
+*/
+
+-- åãçáï\
+/*
+SELECT
+  e.id,
+  e.name,
+  e.age,
+  e.birthyear,
+  g.name,
+  d.name,
+  h.name
+FROM employees e
+  INNER JOIN genders g
+  ON e.gender_id = g.id
+    INNER JOIN departments d
+    ON e.department_id = d.id
+      INNER JOIN employee_hobbies eh
+      ON e.id = eh.employee_id
+        INNER JOIN hobbies h
+        ON eh.hobby_id = h.id
+ORDER BY e.id ASC
+\g
+*/
+
+CREATE VIEW hobby_view AS
+SELECT
+  e.name AS ñºëO,
+  g.name AS ê´ï ,
+  d.name AS èäëÆ,
+  h.name AS éÔñ°
+FROM employees e
+  INNER JOIN genders g
+  ON e.gender_id = g.id
+    INNER JOIN departments d
+    ON e.department_id = d.id
+      INNER JOIN employee_hobbies eh
+      ON e.id = eh.employee_id
+        INNER JOIN hobbies h
+        ON eh.hobby_id = h.id
+ORDER BY e.id ASC
+\g
+
+SELECT * FROM hobby_view
+WHERE éÔñ° LIKE '%ãÛéË%';
 
 
