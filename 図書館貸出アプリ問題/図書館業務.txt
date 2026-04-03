@@ -1,0 +1,78 @@
+-- 図書館業務
+
+-- DB: loanbooks
+-- user: root
+
+
+-- 新しい本が入荷した。
+-- id: bk006
+-- title: ナルニア国物語
+-- author: クライブ・ステープルス・ルイス
+--
+-- id: bk007
+-- title: 不思議の国のアリス
+-- author: ルイス・キャロル
+
+insert into books
+  (id, title, author)
+values
+  ('bk006', 'ナルニア国物語', 'クライブ・ステープルス・ルイス'),
+  ('bk007', '不思議の国のアリス', 'ルイス・キャロル');
+
+
+
+
+-- 新しい会員が入会した。
+-- id: 123459
+-- name: 木下藤吉郎
+
+insert into members
+  (id, name)
+values
+  ('123459', '木下藤吉郎');
+  
+
+
+-- 木下藤吉郎が本を借りた。
+-- 不思議の国のアリス
+-- 返却予定日は2週間後。
+
+-- 貸出表入力
+insert into loans
+  (member_id, loan_date, return_date)
+values
+  ('123459', '2026/04/03', '2026/04/17');
+
+-- 貸出番号と書籍番号の対応表  
+insert into loan_books
+  (loan_id, book_id)
+values
+  (5, 'bk007');
+
+
+-- かぐや姫が本を借りた
+-- ナルニア国物語
+-- 返却予定日は2週間後
+
+begin;    -- トランザクション処理開始
+-- 貸出表入力
+insert into loans
+  (member_id, loan_date, return_date)
+values
+  ('123458', '2026/04/03', '2026/04/17');
+
+-- 貸出番号と書籍番号の対応表(失敗)  
+insert into loan_books
+  (loan_id, book_id)
+values
+  (6, 'bk111');
+
+rollback;  -- エラーの場合、巻き戻す
+commit;    -- 成功した場合
+
+  
+
+
+
+
+-- 修正時刻: Fri 2026/04/03 07:05:30
